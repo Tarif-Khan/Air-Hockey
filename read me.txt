@@ -1,0 +1,15 @@
+﻿Tarif Khan and Daniel Veretenov
+Readme HW2
+
+
+To run our program please do the following
+
+
+1. Run make in the command line after directing to the proper directory/folder.
+2. Then execute the program using ./airhockey
+3. Then follow the main menu/welcome menu’s instruction to run the game and learn the controls. To play press t and set inputs, to quit press q or finish the game and exit the exit screen.
+4. After the game ends, please wait 5 seconds to display the best scores.
+5. After playing please run make clean to remove all executables and .o files.
+6. To play again please go through these steps.
+
+*** DISCLAIMER -- WASD works but is slow due to the timeout logic as well as computational logic on the khoury server. please hold down the input or run locally.  ***

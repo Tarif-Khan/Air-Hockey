@@ -1,0 +1,35 @@
+﻿Tarif Khan and Daniel Veretenov
+Pseudocode HW2
+CS3520
+
+
+
+
+For our code here are the following steps we took to make our game work:
+
+
+* First we read the preexisting code together on a zoom call to understand what has already been defined for us and how the game functions.
+* Then we read up on the ncurses library needed to understand the GUI functionality of this homework assignment.
+* Then we had a discussion as to how we wanted to implement the program. Our choices were to either start creating the user interface and then implement the game accordingly, or implement the game in its first rendition and then build upon it based on the requirements for the UI.
+* We chose to first build out the game in its initial state and then build upon our rendition based on whatever requirements were needed.
+* First we started working on air_hockey.cpp by working on the main function. This function would basically run our game. We started out defining a winning score as 3 so that we can simulate a game and end it. We also defined the player scores to keep track. If the game got to three the game would end.
+* Then we implemented the checking for the entire game state to run and keep track of the state in a while loop. 
+* To do this we checked upon the Zone (playing area), Slider(for each player) and the Puck by instantiating the logic to be appropriate for a game in the GUI.  
+* Then we set boolean flags for input for both players to be false and checked for an input. Every time an input was recorded the loop would move the player’s slider and redraw the state while also incorporating the logic of where the puck and slider is on the zone. We did this by using a switch case and calling the move method each player has.
+* To refine input detection we added/refactored logic for key.cpp to handle all cases. We tested input detection by printing to the command line.
+* Then we worked on zone.cpp where we rendered a static zone and slider without a puck.
+* We added the goalwidth, barriers and center line.
+* We then added the logic to redraw as the game went on.
+* We then went back to slider.cpp and implemented slider.move and the get methods to get its position. We then tested the game by having the sliders move around in the GUI. 
+* Then, after testing for input detection for a slider, we worked on puck.cpp where we implemented the logic to record if the puck hits a slider, wall or goal using its position. If the position is equal to the positioning of a slider or wall the game renders the opposite direction it will head in, whereas if it is equal to a goal, the game resets with the puck in the middle moving in a random direction while updating the score. We played multiple games to ensure the game works.
+* We also had a set variable in air_hockey.cpp named ballDelay which sets the speed of the ball.
+* After ensuring our core game worked, we then moved onto UI implementation.
+* We first started by implementing the welcome screen which asks for user to press t to play or q to quit alongside the information for the game such as the scoring system and controls in air_hockey.cpp. Then we added the level difficulty where the ballDelay would change depending on the difficulty needed. 
+* We also added the input for the length of the goal area and slider with its logic in air_hockey.cpp.
+* Then we worked on the number of rounds implementation which would keep a variable of rounds to check who won. We first set a hard number of 2 rounds and tested in air_hockey.cpp. Then we implemented the input for rounds using the variable numLevels and player1Levels/player2Levels. We played multiple games with both player 1 and 2 winning to ensure the functionality worked.
+* Then we added the text of level, score and difficulty to the game in the GUI and tested it for rendering.
+* For the hard difficulty we added 3 wide platforms to randomly generate making sure they are not in front of the goal in air_hockey.cpp. We added the logic for the ball to hit the obstacle and move while also redrawing the state. We tested this functionality by playing the game.
+* After we tested the game running in difficulty, slider with, goal width, we implemented the game over screen in air_hockey.cpp. We played multiple games with both players winning to return a menu which shows which player won or if it is a tie. We then prompt exit by pressing any key.
+* For all inputs which take in an int such as slider length or goal width we take in a string form the command line and use the atoi function to cast to int in air_hockey.cpp.
+* We then implemented the logic to save the scores and display the top scores in air_hockey.cpp. To do this we created a new directory which writes to a file the best scores. The program then reads the scores from the files.
+* In air_hockey.cpp we implemented the color functionality using the startcolor method which sets the color of all properties of the state to their specific colors.
